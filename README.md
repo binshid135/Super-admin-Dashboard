@@ -116,6 +116,26 @@ Core Models:
 - Welcome Emails with login credentials for new users
 - Password Reset with OTP verification
 
+## Development Challenges & Solutions
+
+### Challenge 1: Custom User Model Integration
+**Problem**: Django's default User model didn't support UUID primary keys and custom role fields needed for the application.
+
+**Solution**: 
+- Created CustomUser model extending AbstractUser
+- Used UUIDField for primary key instead of auto-increment integer
+- Added role field with choices for superadmin and user
+- Configured AUTH_USER_MODEL in settings.py
+- Updated all references from User to CustomUser
+  
+### Challenge 2: CORS Configuration for Frontend-Backend Communication
+**Problem**: Frontend running on port 3000 couldn't access backend API on port 8000 due to CORS restrictions.
+
+**Solution**:
+- Installed and configured django-cors-headers
+- Added CORS_ALLOWED_ORIGINS with frontend URL
+- Configured CORS settings to allow credentials and necessary headers
+- Set up CORS for both development and production environments
 
 ## Troubleshooting
 
