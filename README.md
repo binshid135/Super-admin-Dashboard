@@ -18,14 +18,18 @@ python -m venv venv
 
 # Activate virtual environment
 -On Windows: venv\Scripts\activate
+
 -On macOS/Linux: source venv/bin/activate
+
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Apply migrations
--python manage.py makemigrations
--python manage.py migrate
+# Apply migrations:
+python manage.py makemigrations
+
+python manage.py migrate
+
 
 # Create super admin user
 python manage.py createsuperadmin --email admin@example.com --username superadmin --password YourSecurePassword123!
